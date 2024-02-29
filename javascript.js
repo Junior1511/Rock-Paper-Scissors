@@ -18,15 +18,15 @@ function oneRound (playerSelection,computerSelection){
     if (playerSelection === computerSelection){
         return tie
     } else if ((playerSelection === "rock") && (computerSelection === "paper")){
-        return lose
+        return lose + " Paper beats Rock."
     } else if ((playerSelection === "rock") && (computerSelection === "scissors")){
-        return win
+        return win + " Rock beats Scissors."
     } else if ((playerSelection === "paper") && (computerSelection === "scissors")){
-        return lose
+        return lose + " Scissors beats Paper."
     } else if ((playerSelection === "paper") && (computerSelection === "rock")){
-        return win
+        return win + " Paper beats Rock."
     } else if ((playerSelection === "scissors") && (computerSelection === "rock")){
-        return lose
+        return lose + " Rock beats Scissors."
     } else if ((playerSelection === "scissors") && (computerSelection === "paper")){
-        return win
+        return win + " Scissors beats Paper."
     }}
