@@ -7,26 +7,54 @@ function getComputerChoice(array){
     return array[randomIndex];
 }
 
-let compSel = getComputerChoice(computerOptions)
-let tie = "It's a Tie!"
-let win = "You Win!"
-let lose = "You Lose!"
+let tie = "It's a Tie!";
+let winRBS = "You Win! Rock beats Scissors.";
+let winSBP = "You Win! Scissors beats Paper.";
+let winPBR = "You Win! Paper beats Rock.";
+let loseRBS = "You lose! Rock beats Scissors.";
+let loseSBP = "You lose! Scissors beats Paper.";
+let losePBR = "You lose! Paper beats Rock.";
+let wins = 0;
+let loses = 0;
+let ties = 0;
 
-function oneRound (playerSelection,computerSelection){
-    computerSelection = compSel;
-    playerSelection= playerSelection.toLowerCase()
+
+function playRound (playerSelection,computerSelection){
+    computerSelection = getComputerChoice(computerOptions);
+    playerSelection = prompt("Rock,Paper, or Scissors?") 
     if (playerSelection === computerSelection){
-        return tie
+        console.log(tie)
+        ties++
     } else if ((playerSelection === "rock") && (computerSelection === "paper")){
-        return lose + " Paper beats Rock."
+        console.log(losePBR)
+        loses++
     } else if ((playerSelection === "rock") && (computerSelection === "scissors")){
-        return win + " Rock beats Scissors."
+        console.log(winRBS)
+        wins++
     } else if ((playerSelection === "paper") && (computerSelection === "scissors")){
-        return lose + " Scissors beats Paper."
+        console.log(loseSBP)
+        loses++
     } else if ((playerSelection === "paper") && (computerSelection === "rock")){
-        return win + " Paper beats Rock."
+        console.log(winPBR)
+        wins++
     } else if ((playerSelection === "scissors") && (computerSelection === "rock")){
-        return lose + " Rock beats Scissors."
+        console.log(loseRBS)
+        loses++
     } else if ((playerSelection === "scissors") && (computerSelection === "paper")){
-        return win + " Scissors beats Paper."
+        console.log(winSBP)
+        wins++
     }}
+    function playGame(){
+        for (i = 1; i <= 5; i++){
+            playRound()
+        }
+        if (wins >= 3){
+            console.log( "Player wins against Computer")
+        } else if (loses >= 3){
+            console.log( "Computer wins against Player")
+        } else if (ties >=3){
+            console.log( "It's a tie! bro")
+        }
+    }
+
+    playGame()
