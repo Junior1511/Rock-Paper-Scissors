@@ -21,7 +21,6 @@ let ties = 0;
 
 function playRound (playerSelection,computerSelection){
     computerSelection = getComputerChoice(computerOptions);
-    playerSelection = prompt("Rock,Paper, or Scissors?") 
     if (playerSelection === computerSelection){
         console.log(tie)
         ties++
@@ -44,17 +43,36 @@ function playRound (playerSelection,computerSelection){
         console.log(winSBP)
         wins++
     }}
-    function playGame(){
-        for (i = 1; i <= 5; i++){
-            playRound()
-        }
-        if (wins >= 3){
-            console.log( "Player wins against Computer")
-        } else if (loses >= 3){
-            console.log( "Computer wins against Player")
-        } else if (ties >=3){
-            console.log( "It's a tie! bro")
-        }
-    }
+    // function playGame(){
+    //     for (i = 1; i <= 5; i++){
+    //         playRound()
+    //     }
+    //     if (wins >= 3){
+    //         console.log( "Player wins against Computer")
+    //     } else if (loses >= 3){
+    //         console.log( "Computer wins against Player")
+    //     } else if (ties >=3){
+    //         console.log( "It's a tie! bro")
+    //     }
+    // }
 
-    playGame()
+    // playGame()
+
+    // Query Selectors 
+
+    const rock = document.querySelector("#rock")
+    const paper = document.querySelector("#paper")
+    const scissors = document.querySelector("#scissors")
+
+    // Buttons
+    rock.addEventListener("click", function(){
+        playRound("rock")
+    })
+
+    paper.addEventListener("click", function(){
+        playRound("paper")
+    })
+
+    scissors.addEventListener("click", function(){
+        playRound("scissors")
+    })
