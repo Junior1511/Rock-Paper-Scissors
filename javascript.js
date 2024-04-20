@@ -22,48 +22,77 @@ let ties = 0;
 function playRound (playerSelection,computerSelection){
     computerSelection = getComputerChoice(computerOptions);
     if (playerSelection === computerSelection){
-        console.log(tie)
         ties++
+        paragraph.innerText = tie
+        results.appendChild(paragraph)
+        p.innerText = `Wins = ${wins}       Loses = ${loses}     Ties = ${ties}`
+        results.appendChild(p)
+        playGame()
     } else if ((playerSelection === "rock") && (computerSelection === "paper")){
-        console.log(losePBR)
         loses++
+        paragraph.innerText = losePBR
+        results.appendChild(paragraph)
+        p.innerText = `Wins = ${wins}       Loses = ${loses}     Ties = ${ties}`
+        results.appendChild(p)
+        playGame()
     } else if ((playerSelection === "rock") && (computerSelection === "scissors")){
-        console.log(winRBS)
         wins++
+        paragraph.innerText = winRBS
+        results.appendChild(paragraph)
+        p.innerText = `Wins = ${wins}       Loses = ${loses}     Ties = ${ties}`
+        results.appendChild(p)
+        playGame()
     } else if ((playerSelection === "paper") && (computerSelection === "scissors")){
-        console.log(loseSBP)
         loses++
+        paragraph.innerText = loseSBP
+        results.appendChild(paragraph)
+        p.innerText = `Wins = ${wins}       Loses = ${loses}     Ties = ${ties}`
+        results.appendChild(p)
+        playGame()
     } else if ((playerSelection === "paper") && (computerSelection === "rock")){
-        console.log(winPBR)
         wins++
+        paragraph.innerText = winPBR
+        results.appendChild(paragraph)
+            p.innerText = `Wins = ${wins}       Loses = ${loses}     Ties = ${ties}`
+            results.appendChild(p)
+        playGame()
     } else if ((playerSelection === "scissors") && (computerSelection === "rock")){
-        console.log(loseRBS)
         loses++
+        paragraph.innerText = loseRBS
+        results.appendChild(paragraph)
+            p.innerText = `Wins = ${wins}       Loses = ${loses}     Ties = ${ties}`
+            results.appendChild(p)
+        playGame()
     } else if ((playerSelection === "scissors") && (computerSelection === "paper")){
-        console.log(winSBP)
         wins++
+        paragraph.innerText = winSBP
+        results.appendChild(paragraph)
+            p.innerText = `Wins = ${wins}       Loses = ${loses}     Ties = ${ties}`
+            results.appendChild(p)
+        playGame()
     }}
-    // function playGame(){
-    //     for (i = 1; i <= 5; i++){
-    //         playRound()
-    //     }
-    //     if (wins >= 3){
-    //         console.log( "Player wins against Computer")
-    //     } else if (loses >= 3){
-    //         console.log( "Computer wins against Player")
-    //     } else if (ties >=3){
-    //         console.log( "It's a tie! bro")
-    //     }
-    // }
-
-    // playGame()
-
+    function playGame(){
+        if (wins >= 5){
+            h2.innerText =  "Player wins against Computer"
+            results.appendChild(h2)
+        } else if (loses >= 5){
+            h2.innerText =  "Computer wins against Player"
+            results.appendChild(h2)
+        } else if (ties >= 5){
+            h2.innerText =  "It's a tie!"
+            results.appendChild(h2)
+        }
+    }
+    
     // Query Selectors 
 
     const rock = document.querySelector("#rock")
     const paper = document.querySelector("#paper")
     const scissors = document.querySelector("#scissors")
-
+    const results = document.querySelector("#results")
+    const paragraph = document.createElement("p")
+    const p = document.createElement("p")
+    const h2 = document.createElement("h2")
     // Buttons
     rock.addEventListener("click", function(){
         playRound("rock")
